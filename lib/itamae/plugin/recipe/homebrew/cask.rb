@@ -1,6 +1,6 @@
 include_recipe 'common.rb'
 
-repo = 'caskroom/cask'
+repo = 'homebrew/cask'
 execute 'Install Homebrew Cask' do
   command "brew tap #{repo}"
   not_if "brew tap | grep '^#{repo}$'"
