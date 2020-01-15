@@ -1,6 +1,6 @@
 include_recipe 'cask.rb'
 
-repo = 'caskroom/fonts'
+repo = 'homebrew/cask-fonts'
 execute 'Install Caskroom-fonts' do
   command "brew tap #{repo}"
   not_if "brew tap | grep '^#{repo}$'"
