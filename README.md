@@ -1,7 +1,6 @@
 # itamae-plugin-recipe-homebrew
-[![Gem Version](https://badge.fury.io/rb/itamae-plugin-recipe-homebrew.svg)](http://badge.fury.io/rb/itamae-plugin-recipe-homebrew)
 
-Plugin to support the HomeBrew for [Itamae](https://github.com/itamae-kitchen/itamae)
+Plugin to support the Homebrew for [Itamae](https://github.com/itamae-kitchen/itamae)
 
 
 ## Installation
@@ -9,7 +8,8 @@ Plugin to support the HomeBrew for [Itamae](https://github.com/itamae-kitchen/it
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'itamae-plugin-recipe-homebrew'
+gem 'itamae-plugin-recipe-homebrew', git: 'https://github.com/haru-ake/itamae-plugin-recipe-homebrew.git',
+                                     branch: 'master'
 ```
 
 And then execute:
@@ -24,13 +24,23 @@ Or install it yourself as:
 
 ### Recipe
 
-##### your recipe example
+Install Homebrew and packages
+
 ```ruby
+include_recipe 'homebrew'
+```
+
+Or `include_recipe` just what you need manually:
+
+```ruby
+include_recipe 'homebrew::setup'
+include_recipe 'homebrew::install'
 include_recipe 'homebrew::package'
 include_recipe 'homebrew::cask'
 ```
 
 ### Node
+
 case was an example the yaml
 
 ##### your node example
@@ -88,13 +98,18 @@ brew:
     - xtrafinder
     - appcleaner
     - bettertouchtool
+  install_fonts:
+    - font-vlgothic
 ```
+
 ##### Description of Option
+
 * **enable_update** : run the `brew update` If true
 * **enable_upgrade** : run the `brew upgrade` If true
-* **add_repositories** : run the `brew tap XXXXX`. To specify the repositories you want to add an array
-* **install_packages** : run the `brew install XXXXX`. To specify the packages you want to add an array
-* **install_apps** : run the `brew cask instal`. To specify the applications you want to add an array
+* **add_repositories** : run the `brew tap`. To specify the repositories you want to add an array
+* **install_packages** : run the `brew install`. To specify the packages you want to add an array
+* **install_apps** : run the `brew cask install`. To specify the applications you want to add an array
+* **install_fonts** : run the `brew cask install`. To specify the fonts you want to add an array
 
 ## Contributing
 
