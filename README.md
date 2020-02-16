@@ -102,11 +102,14 @@ brew:
 
 ##### Description of Option
 
-* **enable_update** : run the `brew update` If true
-* **enable_upgrade** : run the `brew upgrade` If true
-* **add_repositories** : run the `brew tap`. To specify the repositories you want to add an array
-* **install_packages** : run the `brew install`. To specify the packages you want to add an array
-* **install_apps** : run the `brew cask install`. To specify the applications you want to add an array
+| Property               | Default |                                                                                  |
+|:-----------------------|:--------|:---------------------------------------------------------------------------------|
+| **enable_auto_update** | `true`  | Run the `brew update` when `brew install`                                        |
+| **enable_update**      | `false` | Run the `brew update`                                                            |
+| **enable_upgrade**     | `false` | Run the `brew upgrade`                                                           |
+| **add_repositories**   | `[]`    | Run the `brew tap` to specify the repositories you want to add an array          |
+| **install_packages**   | `[]`    | Run the `brew install` to specify the packages you want to add an array          |
+| **install_apps**       | `[]`    | Run the `brew cask install` to specify the applications you want to add an array |
 
 ## Contributing
 
