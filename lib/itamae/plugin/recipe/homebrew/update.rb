@@ -1,5 +1,4 @@
-enable_update = node['brew']['enable_update'] ? node['brew']['enable_update'] : false
-if enable_update
+if node['brew']['enable_update']
   execute 'Update Homebrew' do
     command 'brew update'
   end
