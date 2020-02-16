@@ -17,7 +17,7 @@
   end
 
   execute "Install package: #{formula}" do
-    command "brew install #{options} #{formula}"
-    not_if "brew list | grep '^#{name}$'"
+    command "brew install #{options} #{formula}".gsub(/\s+/, ' ')
+    not_if "brew list #{name}"
   end
 end
