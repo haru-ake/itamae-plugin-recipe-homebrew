@@ -1,8 +1,25 @@
 if node[:platform] == 'darwin'
   (node['brew']['install_apps'] || []).each do |app|
-    execute "Install application: #{app}" do
-      command "brew cask install #{app}"
-      not_if "brew cask list | grep '^#{app}$'"
+    case app
+    when String
+      formula = app
+      options = ''
+    when Hash
+      formula = app['name']
+      options = app['options'] || ''
+    else
+      raise("Unknown type: #{app.class}")
+    end
+
+    name = formula.split('/').last
+    if name.nil? || name.empty?
+      Itamae.logger.warn('Invalid value in node attributes')
+      next
+    end
+
+    execute "Install application: #{formula}" do
+      command "brew cask install #{options} #{formula}"
+      not_if "brew cask list | grep '^#{name}$'"
     end
   end
 else
