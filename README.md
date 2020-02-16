@@ -98,8 +98,6 @@ brew:
     - xtrafinder
     - appcleaner
     - bettertouchtool
-  install_fonts:
-    - font-vlgothic
 ```
 
 ##### Description of Option
@@ -109,7 +107,6 @@ brew:
 * **add_repositories** : run the `brew tap`. To specify the repositories you want to add an array
 * **install_packages** : run the `brew install`. To specify the packages you want to add an array
 * **install_apps** : run the `brew cask install`. To specify the applications you want to add an array
-* **install_fonts** : run the `brew cask install`. To specify the fonts you want to add an array
 
 ## Contributing
 
