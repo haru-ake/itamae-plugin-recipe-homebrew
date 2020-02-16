@@ -1,3 +1,5 @@
+require 'itamae/plugin/recipe/homebrew/version'
+
 module Itamae
   module Plugin
     module Recipe
