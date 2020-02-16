@@ -46,58 +46,19 @@ case was an example the yaml
 ##### your node example
 ```yaml
 brew:
+  enable_auto_update: false
   enable_update: false
   enable_upgrade: false
   add_repositories:
-    - homebrew/dupes
     - homebrew/versions
-    - homebrew/binary
-    - peco/peco
-    - motemen/ghq
   install_packages:
-    - brew-cask
-    - coreutils
-    - findutils
-    - zsh
-    - bash
-    - vim
-    - tmux
-    - git
-    - hub
-    - tig
-    - ghq
-    - imagemagick
-    - wget
-    - rsync
-    - curl
-    - tree
-    - openssl
-    - libyaml
-    - readline
-    - markdown
+    - name: git
+      options: --build-from-source
     - jq
-    - peco
-    - ctags
-    - rbenv
-    - ruby-build
-    - mysql
-    - postgresql
-    - node
-    - redis
-    - rbenv
-    - ruby-build
   install_apps:
-    - google-chrome
-    - iterm2
-    - virtualbox
+    - name: firefox
+      options: --language=ja
     - vagrant
-    - vagrant-manager
-    - google-japanese-ime
-    - dash
-    - github
-    - xtrafinder
-    - appcleaner
-    - bettertouchtool
 ```
 
 ##### Description of Option
