@@ -1,7 +1,6 @@
 # itamae-plugin-recipe-homebrew
-[![Gem Version](https://badge.fury.io/rb/itamae-plugin-recipe-homebrew.svg)](http://badge.fury.io/rb/itamae-plugin-recipe-homebrew)
 
-Plugin to support the HomeBrew for [Itamae](https://github.com/itamae-kitchen/itamae)
+Plugin to support the Homebrew for [Itamae](https://github.com/itamae-kitchen/itamae)
 
 
 ## Installation
@@ -9,7 +8,8 @@ Plugin to support the HomeBrew for [Itamae](https://github.com/itamae-kitchen/it
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'itamae-plugin-recipe-homebrew'
+gem 'itamae-plugin-recipe-homebrew', git: 'https://github.com/haru-ake/itamae-plugin-recipe-homebrew.git',
+                                     branch: 'master'
 ```
 
 And then execute:
@@ -24,77 +24,53 @@ Or install it yourself as:
 
 ### Recipe
 
-##### your recipe example
+Install Homebrew and packages
+
 ```ruby
+include_recipe 'homebrew'
+```
+
+Or `include_recipe` just what you need manually:
+
+```ruby
+include_recipe 'homebrew::setup'
+include_recipe 'homebrew::install'
 include_recipe 'homebrew::package'
 include_recipe 'homebrew::cask'
 ```
 
 ### Node
+
 case was an example the yaml
 
 ##### your node example
 ```yaml
 brew:
+  enable_auto_update: false
   enable_update: false
   enable_upgrade: false
   add_repositories:
-    - homebrew/dupes
     - homebrew/versions
-    - homebrew/binary
-    - peco/peco
-    - motemen/ghq
   install_packages:
-    - brew-cask
-    - coreutils
-    - findutils
-    - zsh
-    - bash
-    - vim
-    - tmux
-    - git
-    - hub
-    - tig
-    - ghq
-    - imagemagick
-    - wget
-    - rsync
-    - curl
-    - tree
-    - openssl
-    - libyaml
-    - readline
-    - markdown
+    - name: git
+      options: --build-from-source
     - jq
-    - peco
-    - ctags
-    - rbenv
-    - ruby-build
-    - mysql
-    - postgresql
-    - node
-    - redis
-    - rbenv
-    - ruby-build
   install_apps:
-    - google-chrome
-    - iterm2
-    - virtualbox
+    - name: firefox
+      options: --language=ja
     - vagrant
-    - vagrant-manager
-    - google-japanese-ime
-    - dash
-    - github
-    - xtrafinder
-    - appcleaner
-    - bettertouchtool
 ```
+
 ##### Description of Option
-* **enable_update** : run the `brew update` If true
-* **enable_upgrade** : run the `brew upgrade` If true
-* **add_repositories** : run the `brew tap XXXXX`. To specify the repositories you want to add an array
-* **install_packages** : run the `brew install XXXXX`. To specify the packages you want to add an array
-* **install_apps** : run the `brew cask instal`. To specify the applications you want to add an array
+
+| Property               | Default |                                                                                  |
+|:-----------------------|:--------|:---------------------------------------------------------------------------------|
+| **enable_auto_update** | `true`  | Run the `brew update` when `brew install`                                        |
+| **enable_update**      | `false` | Run the `brew update`                                                            |
+| **enable_upgrade**     | `false` | Run the `brew upgrade`                                                           |
+| **add_repositories**   | `[]`    | Run the `brew tap` to specify the repositories you want to add an array          |
+| **install_packages**   | `[]`    | Run the `brew install` to specify the packages you want to add an array          |
+| **install_apps**       | `[]`    | Run the `brew cask install` to specify the applications you want to add an array |
 
 ## Contributing
 
