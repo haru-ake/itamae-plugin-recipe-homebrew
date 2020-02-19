@@ -51,6 +51,8 @@ brew:
   enable_upgrade: false
   add_repositories:
     - homebrew/versions
+    - name: foo/bar
+      url: https://example.com/foo/bar.git
   install_packages:
     - name: git
       options: --build-from-source
