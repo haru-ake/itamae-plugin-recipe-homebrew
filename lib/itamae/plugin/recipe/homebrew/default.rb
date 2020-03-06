@@ -1,4 +1,5 @@
 include_recipe 'homebrew::setup'
+include_recipe 'homebrew::deps'
 include_recipe 'homebrew::install'
 include_recipe 'homebrew::update'
 include_recipe 'homebrew::upgrade'
