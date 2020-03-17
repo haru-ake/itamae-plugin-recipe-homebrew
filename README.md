@@ -61,6 +61,10 @@ brew:
     - name: firefox
       options: --language=ja
     - vagrant
+  links:
+    - name: openssl
+      options: --force
+    - w3m
   services:
     - emacs
 ```
@@ -75,6 +79,7 @@ brew:
 | **add_repositories**   | `[]`    | Run the `brew tap` to specify the repositories you want to add an array          |
 | **install_packages**   | `[]`    | Run the `brew install` to specify the packages you want to add an array          |
 | **install_apps**       | `[]`    | Run the `brew cask install` to specify the applications you want to add an array |
+| **links**              | `[]`    | Run the `brew link` to specify the formula you want to add an array              |
 | **services**           | `[]`    | Run the `brew services` to specify the services you want to add an array         |
 
 ## Contributing
