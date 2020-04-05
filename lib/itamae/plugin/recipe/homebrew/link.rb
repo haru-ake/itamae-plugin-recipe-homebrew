@@ -1,4 +1,4 @@
-(node['brew']['links'] || []).each do |app|
+(node['homebrew']['links'] || []).each do |app|
   case app
   when String
     formula = app

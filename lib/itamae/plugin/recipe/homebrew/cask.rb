@@ -1,5 +1,5 @@
 if node[:platform] == 'darwin'
-  (node['brew']['install_apps'] || []).each do |app|
+  (node['homebrew']['cask_packages'] || []).each do |app|
     case app
     when String
       formula = app
@@ -17,7 +17,7 @@ if node[:platform] == 'darwin'
       next
     end
 
-    execute "Install application: #{formula}" do
+    execute "Install cask package: #{formula}" do
       command "brew cask install #{options} #{formula}".gsub(/\s+/, ' ')
       not_if "brew cask list #{name}"
     end
