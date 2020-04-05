@@ -1,5 +1,5 @@
 if node[:platform] == 'darwin'
-  (node['brew']['services'] || []).each do |service|
+  (node['homebrew']['services'] || []).each do |service|
     execute "Start service: #{service}" do
       command "brew services start #{service}"
       not_if "brew services | grep '^#{service} ' | grep ' started '"

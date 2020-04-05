@@ -1,4 +1,4 @@
-(node['brew']['add_repositories'] || []).each do |repo|
+(node['homebrew']['taps'] || []).each do |repo|
   case repo
   when String
     name = repo
@@ -10,7 +10,7 @@
     raise("Unknow type: #{repo.class}")
   end
 
-  execute "Add Repository: #{name}" do
+  execute "Tap repository: #{name}" do
     command "brew tap #{name} #{url}".strip
     not_if "brew tap | grep '^#{name}$'"
   end

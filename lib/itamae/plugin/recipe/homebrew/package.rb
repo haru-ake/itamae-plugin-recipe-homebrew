@@ -1,4 +1,4 @@
-(node['brew']['install_packages'] || []).each do |package|
+(node['homebrew']['packages'] || []).each do |package|
   case package
   when String
     formula = package
