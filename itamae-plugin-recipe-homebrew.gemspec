@@ -6,11 +6,11 @@ require 'itamae/plugin/recipe/homebrew/version'
 Gem::Specification.new do |spec|
   spec.name          = "itamae-plugin-recipe-homebrew"
   spec.version       = Itamae::Plugin::Recipe::Homebrew::VERSION
-  spec.authors       = ["fukuiretu"]
-  spec.email         = ["s0232101@gmail.com"]
+  spec.authors       = ["Haru Akebono"]
+  spec.email         = ["haru.akebono.11@gmail.com"]
   spec.summary       = %q{Plugin to support the HomeBrew for Itamae}
   spec.description   = %q{Plugin to support the HomeBrew for Itamae}
-  spec.homepage      = "https://github.com/fukuiretu/itamae-plugin-recipe-homebrew"
+  spec.homepage      = "https://github.com/haru-ake/itamae-plugin-recipe-homebrew"
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})

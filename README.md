@@ -45,34 +45,42 @@ case was an example the yaml
 
 ##### your node example
 ```yaml
-brew:
-  enable_auto_update: false
-  enable_update: false
-  enable_upgrade: false
-  add_repositories:
+homebrew:
+  auto_update: false
+  update: false
+  upgrade: false
+  taps:
     - homebrew/versions
     - name: foo/bar
       url: https://example.com/foo/bar.git
-  install_packages:
+  packages:
     - name: git
       options: --build-from-source
     - jq
-  install_apps:
+  cask_packages:
     - name: firefox
       options: --language=ja
     - vagrant
+  links:
+    - name: openssl
+      options: --force
+    - w3m
+  services:
+    - emacs
 ```
 
 ##### Description of Option
 
-| Property               | Default |                                                                                  |
-|:-----------------------|:--------|:---------------------------------------------------------------------------------|
-| **enable_auto_update** | `true`  | Run the `brew update` when `brew install`                                        |
-| **enable_update**      | `false` | Run the `brew update`                                                            |
-| **enable_upgrade**     | `false` | Run the `brew upgrade`                                                           |
-| **add_repositories**   | `[]`    | Run the `brew tap` to specify the repositories you want to add an array          |
-| **install_packages**   | `[]`    | Run the `brew install` to specify the packages you want to add an array          |
-| **install_apps**       | `[]`    | Run the `brew cask install` to specify the applications you want to add an array |
+| Property          | Default |                                                                                  |
+|:------------------|:--------|:---------------------------------------------------------------------------------|
+| **auto_update**   | `true`  | Run the `brew update` when `brew install`                                        |
+| **update**        | `false` | Run the `brew update`                                                            |
+| **upgrade**       | `false` | Run the `brew upgrade`                                                           |
+| **taps**          | `[]`    | Run the `brew tap` to specify the repositories you want to add an array          |
+| **packages**      | `[]`    | Run the `brew install` to specify the packages you want to add an array          |
+| **cask_packages** | `[]`    | Run the `brew cask install` to specify the applications you want to add an array |
+| **links**         | `[]`    | Run the `brew link` to specify the formula you want to add an array              |
+| **services**      | `[]`    | Run the `brew services` to specify the services you want to add an array         |
 
 ## Contributing
 

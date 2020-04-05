@@ -6,7 +6,7 @@ end
 
 ENV['CI'] = 'yes'
 
-if node['brew']['enable_auto_update'].nil? || node['brew']['enable_auto_update']
+if node['homebrew']['auto_update'].nil? || node['homebrew']['auto_update']
   ENV['HOMEBREW_NO_AUTO_UPDATE'] = nil
   ENV['HOMEBREW_AUTO_UPDATE_SECS'] = '86400'
 else
