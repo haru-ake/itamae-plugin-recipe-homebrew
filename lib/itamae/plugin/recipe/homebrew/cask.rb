@@ -18,8 +18,8 @@ if node[:platform] == 'darwin'
     end
 
     execute "Install cask package: #{formula}" do
-      command "brew cask install #{options} #{formula}".gsub(/\s+/, ' ')
-      not_if "brew cask list #{name}"
+      command "brew install --cask #{options} #{formula}".gsub(/\s+/, ' ')
+      not_if "brew list --cask #{name}"
     end
   end
 else
