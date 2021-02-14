@@ -84,7 +84,7 @@ homebrew:
 
 ## Contributing
 
-1. Fork it ( https://github.com/fukuiretu/itamae-plugin-recipe-homebrew/fork )
+1. Fork it ( https://github.com/haru-ake/itamae-plugin-recipe-homebrew/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
