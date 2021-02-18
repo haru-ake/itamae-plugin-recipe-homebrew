@@ -12,7 +12,12 @@
 
   name = formula.split('/').last
   if name.nil? || name.empty?
-    Itamae.logger.warn('Invalid value in node attributes')
+    msg = "Invalid value in node attributes: #{formula}"
+    if RUBY_ENGINE == 'mruby'
+      MItamae.logger.warn(msg)
+    else
+      Itamae.logger.warn(msg)
+    end
     next
   end
 
