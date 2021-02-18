@@ -1,9 +1,10 @@
 # itamae-plugin-recipe-homebrew
 
-Plugin to support the Homebrew for [Itamae](https://github.com/itamae-kitchen/itamae)
+[Itamae](https://github.com/itamae-kitchen/itamae)/[MItamae](https://github.com/itamae-kitchen/mitamae) plugin to install [Homebrew](https://brew.sh/) packages.
 
 
 ## Installation
+### Itamae
 
 Add this line to your application's Gemfile:
 
@@ -19,6 +20,11 @@ And then execute:
 Or install it yourself as:
 
     $ gem install itamae-plugin-recipe-homebrew
+
+### MItamae
+
+See https://github.com/itamae-kitchen/mitamae/blob/master/PLUGINS.md#plugins-directory
+
 
 ## Usage
 
@@ -81,6 +87,7 @@ homebrew:
 | **cask_packages** | `[]`    | Run the `brew cask install` to specify the applications you want to add an array |
 | **links**         | `[]`    | Run the `brew link` to specify the formula you want to add an array              |
 | **services**      | `[]`    | Run the `brew services` to specify the services you want to add an array         |
+
 
 ## Contributing
 
