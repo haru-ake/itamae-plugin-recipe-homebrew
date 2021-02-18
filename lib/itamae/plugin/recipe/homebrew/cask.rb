@@ -13,7 +13,13 @@ if node[:platform] == 'darwin'
 
     name = formula.split('/').last
     if name.nil? || name.empty?
-      Itamae.logger.warn('Invalid value in node attributes')
+      msg = "Invalid value in node attributes: #{formula}"
+      if RUBY_ENGINE == 'mruby'
+        MItamae.logger.warn(msg)
+      else
+        Itamae.logger.warn(msg)
+      end
+
       next
     end
 
@@ -23,5 +29,10 @@ if node[:platform] == 'darwin'
     end
   end
 else
-  Itamae.logger.info("#{node[:platform]} is not support cask")
+  msg = "#{node[:platform]} is not support cask"
+  if RUBY_ENGINE == 'mruby'
+    MItamae.logger.info(msg)
+  else
+    Itamae.logger.info(msg)
+  end
 end

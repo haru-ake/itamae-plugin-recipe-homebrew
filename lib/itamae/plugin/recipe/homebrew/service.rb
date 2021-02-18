@@ -6,5 +6,10 @@ if node[:platform] == 'darwin'
     end
   end
 else
-  Itamae.logger.info("#{node[:platform]} is not support service")
+  msg = "#{node[:platform]} is not support service"
+  if RUBY_ENGINE == 'mruby'
+    MItamae.logger.info(msg)
+  else
+    Itamae.logger.info(msg)
+  end
 end
